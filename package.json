@@ -4,8 +4,8 @@
   "description": "React Webpack Babel Starter Kit",
   "main": "''",
   "scripts": {
-    "build": "webpack --config webpack.production.config.js --progress --profile --colors",
-    "start": "webpack-dev-server --progress --profile --colors",
+    "build": "webpack --progress --profile --colors",
+    "start": "webpack-dev-server --open",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "dev": " webpack-dashboard -- webpack-dev-server --progress --profile --colors"
   },
@@ -17,9 +17,11 @@
   "license": "MIT",
   "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
+    "c3": "^0.4.11",
     "node-sass": "^4.3.0",
     "react": "15.4.2",
     "react-dom": "15.4.2",
+    "recompose": "^0.23.1",
     "sass-loader": "^6.0.2"
   },
   "devDependencies": {
