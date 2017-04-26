@@ -1,6 +1,12 @@
 //import React from 'react';
 import PropTypes from 'prop-types';
-//import { findDOMNode } from 'react-dom';
+import {
+	compose,
+	setDisplayName,
+	setPropTypes,
+	onlyUpdateForKeys
+} from 'recompose';
+
 import c3 from 'c3';
 
 class C3Chart extends React.Component {
@@ -43,14 +49,7 @@ class C3Chart extends React.Component {
 		};
 	}
 
-	constructor (){
-		super();
-		console.log('constructor');
-	}
-
 	componentDidMount() {
-		//c3 = require('c3');
-		//debugger;
 		this.updateChart(this.props.config);
 	}
 
@@ -87,7 +86,6 @@ class C3Chart extends React.Component {
 		if (!this.chart) {
 			this.chart = this.generateChart(ReactDOM.findDOMNode(this), config);
 		}
-
 		if (config.unloadBeforeLoad) {
 			this.unloadData();
 		}
@@ -96,7 +94,6 @@ class C3Chart extends React.Component {
 	}
 
 	render() {
-		console.log('render');
 		const className = this.props.className
 			? ` ${this.props.className}`
 			: '';
@@ -107,4 +104,5 @@ class C3Chart extends React.Component {
 	}
 }
 
+export { C3Chart };
 export default C3Chart;

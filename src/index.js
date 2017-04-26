@@ -1,14 +1,16 @@
 //import React from 'react';
 //import ReactDOM from 'react-dom';
-import { BarChart, LineChart } from './components';
-//import {C3Chart} from './components/C3Chart';
+//import { BarChart, LineChart } from './components';
+import {C3Chart} from './C3Chart';
 
 const chartData = {
 	line: {
 		data: {
-			data1: [220, 240, 270, 250, 280],
-			data2: [180, 150, 300, 70, 120],
-			data3: [200, 310, 150, 100, 180]
+			columns: [
+				['data1', 30, 20, 50, 40, 60, 50],
+				['data2', 200, 130, 90, 240, 130, 220],
+				['data3', 300, 200, 160, 400, 250, 250]
+			]
 		}
 	},
 	bar: {
@@ -48,7 +50,7 @@ const lineConfig = {
 			['data2', 200, 130, 90, 240, 130, 220],
 			['data3', 300, 200, 160, 400, 250, 250]
 		],
-		type: 'line',
+		type: 'bar',
 		colors: {
 			data1: '#ff0000',
 			data2: '#00ff00',
@@ -56,14 +58,14 @@ const lineConfig = {
 		}
 	}
 };
-
 const mountNode = document.getElementById('react-c3js');
 
 ReactDOM.render(
 	<div>
 		<h1>react-c3js</h1>
 		<h2>Line Chart</h2>
-		<LineChart config={lineConfig} />
+		<C3Chart config={lineConfig} />
 		<h2>Bar Chart</h2>
+		<C3Chart config={chartData.line} />
 	</div>, mountNode
 );
